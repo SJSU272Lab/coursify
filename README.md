@@ -1,3 +1,3 @@
 # Fall16-Team26
 
-Shafi Dayatar
+Got rights : Shafi Dayatar
