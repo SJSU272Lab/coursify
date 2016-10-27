@@ -1,5 +1,4 @@
 # Fall16-Team26
-Got rights : Shafi Dayatar
 Name of the project : COURSIFY
 
 
