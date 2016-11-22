@@ -1,4 +1,5 @@
 import flask
+from flask import redirect, url_for
 
 app = flask.Flask("__main__")
 
