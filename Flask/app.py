@@ -1,12 +1,18 @@
 import flask
-from flask import redirect, url_for
+
+from flask import request
 
 app = flask.Flask("__main__")
 
 
+@app.route('/form1')
+def form1():
+    return "form1"
+
+
 @app.route('/')
-def hello():
-    return flask.render_template('index.html', name='mak')
+def landingPage():
+    return flask.render_template('landingPage.html')
 
 
 if __name__ == "__main__":
