@@ -58,6 +58,6 @@ Given that the SJSU Website gives information about courses
 When  it is accessed 
 Then the application parses the data
 
-[test: write access]
+
 
 
