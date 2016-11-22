@@ -1,0 +1,41 @@
+body{
+	margin: 0px;
+}
+
+header{
+	background: #999;
+	color: white;
+	padding: 10px 0px 5px 10px;
+}
+
+nav{
+}
+
+nav h1{
+	margin: 0px;
+	display: inline;
+	padding: 0px;
+}
+
+ul{
+	display: inline;
+}
+
+ul li{
+	background: black;
+	display: inline;
+	color: white;
+	padding: 5px;
+	margin: 0px;
+}
+
+ul li a{
+	color: white;
+	margin: 0px;
+	padding: 0px;
+}
+
+footer{
+	background: black;
+	color: white;
+}
