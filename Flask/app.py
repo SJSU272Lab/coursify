@@ -47,6 +47,22 @@ def form2validation():
     return redirect(url_for('form3'))
 
 
+@app.route('/form3validation', methods=['POST'])
+def form3validation():
+    # TODO don't trust user input, check if we can make this more secure
+    # TODO use a iterator
+    # TOOD maintain config details separately
+    session['a'] = request.form.get('a', 0)
+    session['b'] = request.form.get('b', 0)
+    session['c'] = request.form.get('c', 0)
+    session['d'] = request.form.get('d', 0)
+    session['e'] = request.form.get('e', 0)
+    session['f'] = request.form.get('f', 0)
+    session['g'] = request.form.get('g', 0)
+    logSessionInfo()
+    return redirect(url_for('courseSuggetion'))
+
+
 @app.route('/form1')
 def form1():
     # TODO get data from a DB for the from
@@ -63,7 +79,22 @@ def form2():
 @app.route('/form3')
 def form3():
     # TODO use template inheritance to avoid duplicaiton of code
-    return flask.render_template('form2.html')
+
+    # TODO get interests from DB
+    entries = [{'name': 'a'},
+               {'name': 'b'},
+               {'name': 'c'},
+               {'name': 'd'},
+               {'name': 'e'},
+               {'name': 'f'},
+               {'name': 'g'}]
+    return flask.render_template('form3.html', entries=entries)
+
+
+@app.route('/courseSuggetion')
+def courseSuggetion():
+    return "TODO"
+    # return flask.render_template('courseSuggetion.html')
 
 
 @app.route('/feedback')
