@@ -110,12 +110,12 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" action="/form1validation" method="post">
                                         <div class="form-group">
                                             <!-- <label>Select the Course</label> -->
                                             <div class="form-group">
                                             <label>Select the Department </label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="department">
                                                 <option>Software Engineering</option>
                                                 <option>Computer Engineering</option>
                                                 <option>Computer Science</option>
@@ -127,7 +127,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Select the Major </label>
-                                            <select class="form-control">
+                                            <select class="form-control"  name="major">
                                                 <option>Cloud computing and virtualization</option>
                                                 <option>Software systems Engineering</option>
                                                 <!-- <option>Computer Science</option> -->
@@ -137,7 +137,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Select the Minor </label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="minor">
                                                 <option>Cloud computing and virtualization</option>
                                                 <option>Software systems Engineering</option>
                                                 <!-- <option>Computer Science</option> -->
@@ -150,17 +150,17 @@
                                             <label>Graduation Year</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">2016
+                                                    <input type="radio" name="gradYear" value="2016">2016
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">2017
+                                                    <input type="radio" name="gradYear" value="2017">2017
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">2018
+                                                    <input type="radio" name="gradYear" value="2018">2018
                                                 </label>
                                             </div>
                                         </div>
@@ -168,15 +168,14 @@
 
                                         <div class="form-group">
                                             <label>Culminating Experience Interest</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="CulminatingExp">
                                                 <option>Master Project I and II</option>
                                                 <option>Master Thesis I and II</option>
 
                                             </select>
                                         </div>
 
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                        <button type="submit" class="btn btn-default">Submit</button>
                                     </form>
       
 
