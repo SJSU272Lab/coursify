@@ -1,9 +1,9 @@
-from os import path
+import os
 from wordcloud import WordCloud
 import json
 
 
-# Read the whole text.
+# Read the json file
 
 f = open('samplejsonfile.json').read()
 
@@ -21,9 +21,15 @@ for items in tech_dict:
  
 # Generate a word cloud image
 
-
 wordcloud = WordCloud().generate(wordString)
 
 image = wordcloud.to_image()
-image.show()
+
+# to show the generated images
+#image.show()
+
+# to save the generated wordcloud image
+
+wordcloud.to_file("wcImage.png")
+
 
