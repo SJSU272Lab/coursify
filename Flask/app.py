@@ -13,10 +13,10 @@ def formTest():
     return flask.render_template('formTest.html')
 
 
-def logSessionInfo():
+def logInfo(val=session):
     logging.debug("-" * 40)
-    for key in session:
-        logging.debug("%s: %s" % (key, session[key]))
+    for key in val:
+        logging.debug("%s: %s" % (key, val[key]))
     logging.debug("-" * 40)
 
 
@@ -31,7 +31,7 @@ def form1validation():
     session['gradYear'] = request.form['gradYear']
     session['CulminatingExp'] = request.form['CulminatingExp']
 
-    logSessionInfo()
+    logInfo()
     return redirect(url_for('form2'))
 
 
@@ -43,7 +43,7 @@ def form2validation():
     session['OS'] = request.form.get('OS', 0)
     session['DS'] = request.form.get('DS', 0)
     session['OOPS'] = request.form.get('OOPS', 0)
-    logSessionInfo()
+    logInfo()
     return redirect(url_for('form3'))
 
 
@@ -59,8 +59,24 @@ def form3validation():
     session['e'] = request.form.get('e', 0)
     session['f'] = request.form.get('f', 0)
     session['g'] = request.form.get('g', 0)
-    logSessionInfo()
+    logInfo()
     return redirect(url_for('courseSuggetion'))
+
+
+@app.route('/feedbackvalidation', methods=['POST'])
+def feedbackvalidation():
+    # TODO don't trust user input, check if we can make this more secure
+    # TODO use a iterator
+    # TOOD maintain config details separately
+    feedback = {}
+    feedback['courses'] = request.form['courses']
+    feedback['tagid'] = request.form['tagid']
+    feedback['book'] = request.form['book']
+    feedback['review'] = request.form['review']
+    feedback['level'] = request.form['level']
+    feedback['grades'] = request.form['grades']
+    logInfo(feedback)
+    return flask.render_template('thankyou.html')
 
 
 @app.route('/form1')
