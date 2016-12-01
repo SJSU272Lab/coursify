@@ -1,5 +1,6 @@
 [
 	"docker",
 	"flask",
-	"django"
+	"django",
+	"elastic"
 ]

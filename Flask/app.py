@@ -1,11 +1,16 @@
 import flask
 import logging
+import json
 
 from flask import request, session, url_for, redirect
 
 app = flask.Flask("__main__")
 # TODO Use a secure way to set this
 app.secret_key = 'aijdfAJKFJq234kjkdfsa]adfsdfasadfjjq4rjjJHJHjhakgj'
+
+with open('recommender/tech_list.json') as fp:
+    tech_list = json.load(fp)
+tech_list = [str(tech) for tech in tech_list]
 
 
 @app.route('/formTest')
@@ -49,16 +54,11 @@ def form2validation():
 
 @app.route('/form3validation', methods=['POST'])
 def form3validation():
-    # TODO don't trust user input, check if we can make this more secure
-    # TODO use a iterator
-    # TOOD maintain config details separately
-    session['a'] = request.form.get('a', 0)
-    session['b'] = request.form.get('b', 0)
-    session['c'] = request.form.get('c', 0)
-    session['d'] = request.form.get('d', 0)
-    session['e'] = request.form.get('e', 0)
-    session['f'] = request.form.get('f', 0)
-    session['g'] = request.form.get('g', 0)
+    global tech_list
+    tech_liking = {}
+    for tech in tech_list:
+        tech_liking[tech] = bool(request.form.get(tech, False))
+    session['tech_liking'] = tech_liking
     logInfo()
     return redirect(url_for('courseSuggetion'))
 
@@ -95,16 +95,8 @@ def form2():
 @app.route('/form3')
 def form3():
     # TODO use template inheritance to avoid duplicaiton of code
-
-    # TODO get interests from DB
-    entries = [{'name': 'a'},
-               {'name': 'b'},
-               {'name': 'c'},
-               {'name': 'd'},
-               {'name': 'e'},
-               {'name': 'f'},
-               {'name': 'g'}]
-    return flask.render_template('form3.html', entries=entries)
+    global tech_list
+    return flask.render_template('form3.html', entries=tech_list)
 
 
 @app.route('/courseSuggetion')
