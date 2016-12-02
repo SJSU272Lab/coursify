@@ -1,6 +1,7 @@
 import flask
 import logging
 import json
+from feedbackAnalyser import analyse
 
 from flask import request, session, url_for, redirect
 
@@ -65,9 +66,6 @@ def form3validation():
 
 @app.route('/feedbackvalidation', methods=['POST'])
 def feedbackvalidation():
-    # TODO don't trust user input, check if we can make this more secure
-    # TODO use a iterator
-    # TOOD maintain config details separately
     feedback = {}
     feedback['courses'] = request.form['courses']
     feedback['tagid'] = request.form['tagid']
@@ -76,6 +74,9 @@ def feedbackvalidation():
     feedback['level'] = request.form['level']
     feedback['grades'] = request.form['grades']
     logInfo(feedback)
+
+    # TODO run on a separate thread
+    analyse(feedback)
     return flask.render_template('thankyou.html')
 
 
@@ -107,7 +108,13 @@ def courseSuggetion():
 
 @app.route('/feedback')
 def feedback():
-    return flask.render_template('feedback.html')
+    # TODO get courses from DB
+    courses = ["cmpe273", "cmpe202", "cmpe272", "cmpe281", "cmpe283"]
+    # TODO get proffersors from DB
+    professors = ["Prof A", "Prof B", "Prof C", "Prof D"]
+    return flask.render_template('feedback.html',
+                                 courses=courses,
+                                 professors=professors)
 
 
 @app.route('/')
@@ -117,4 +124,4 @@ def landingPage():
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    app.run(host="0.0.0.0", debug=True, port=5992)
+    app.run(host="0.0.0.0", debug=True, port=5992, threaded=True)

@@ -2,9 +2,14 @@
 import json
 import requests
 import urllib
+import os
+import logging
 
-with open("tech_list.json") as fp:
+techListFile = os.path.join(os.path.dirname(__file__), "tech_list.json")
+with open(techListFile) as fp:
     _techList = json.load(fp)
+
+logging.getLogger('requests.packages.urllib3').setLevel(logging.ERROR)
 
 
 def _getSentiment(line):
@@ -62,6 +67,6 @@ def getTechScore(review, techList=None):
 
 
 if __name__ == "__main__":
-    review = """Prof taugh us docker very well. Flask was not good though.
+    review = """Prof taught us docker very well. Flask was not good though.
             He skipped Django. Flask was good then."""
     print getTechScore(review)

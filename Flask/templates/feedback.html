@@ -58,12 +58,20 @@
                                             <!-- <label>Select the Course</label> -->
                                             <div class="form-group">
                                             <br><label>Select the Course </label>
-                                            <select class="form-control" name="courses">
-                                                <option value="cmpe273">CMPE273</option>
-                                                <option value="cmpe202">CMPE202</option>
-                                                <option value="cmpe272">CMPE272</option>
-                                                <option value="cmpe281">CMPE281</option>
-                                                <option value="cmpe283">CMPE283</option>
+                                            <select class="form-control" name="course">
+                                                {% for course in courses %}
+                                                <option value="{{course}}">{{course}}</option>
+                                                {% endfor %}
+                                            </select><br>
+                                        </div>
+                                        <div class="form-group">
+                                            <!-- <label>Select the Course</label> -->
+                                            <div class="form-group">
+                                            <br><label>Select the Course </label>
+                                            <select class="form-control" name="course">
+                                                {% for professor in professors %}
+                                                <option value="{{professor}}">{{professor}}</option>
+                                                {% endfor %}
                                             </select><br>
                                         </div>
                                             <!-- <p class="help-block">Example block-level help text here.</p> -->
