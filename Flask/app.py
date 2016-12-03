@@ -67,12 +67,13 @@ def form3validation():
 @app.route('/feedbackvalidation', methods=['POST'])
 def feedbackvalidation():
     feedback = {}
-    feedback['courses'] = request.form['courses']
-    feedback['tagid'] = request.form['tagid']
-    feedback['book'] = request.form['book']
-    feedback['review'] = request.form['review']
-    feedback['level'] = request.form['level']
-    feedback['grades'] = request.form['grades']
+    feedback['course'] = request.form.get('course', None)
+    feedback['tagid'] = request.form.get('tagid', None)
+    feedback['book'] = request.form.get('book', None)
+    feedback['review'] = request.form.get('review', None)
+    feedback['level'] = request.form.get('level', None)
+    feedback['grades'] = request.form.get('grades', None)
+    feedback['professor'] = request.form.get('professor', None)
     logInfo(feedback)
 
     # TODO run on a separate thread

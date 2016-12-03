@@ -4,10 +4,12 @@ import requests
 import urllib
 import os
 import logging
+import copy
 
 techListFile = os.path.join(os.path.dirname(__file__), "tech_list.json")
 with open(techListFile) as fp:
     _techList = json.load(fp)
+_techList = [str(x).lower() for x in _techList]
 
 logging.getLogger('requests.packages.urllib3').setLevel(logging.ERROR)
 
@@ -38,6 +40,7 @@ def getTechScore(review, techList=None):
     # print review
     if techList is None:
         techList = _techList
+    review = review.replace("!", ".")
     reviewLines = review.split(".")
     reviewLines = [line.strip() for line in reviewLines]
     reviewLines = [line.lower() for line in reviewLines]
@@ -64,6 +67,10 @@ def getTechScore(review, techList=None):
     # print " " * 35 + "END"
     # print "#" * 80
     return techScore
+
+
+def getTechList():
+    return copy.deepcopy(_techList)
 
 
 if __name__ == "__main__":
