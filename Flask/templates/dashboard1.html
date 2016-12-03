@@ -12,19 +12,16 @@
     <title>Web UI Coursify</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/static/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,9 +45,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="introduction.html">Coursify</a>
+                <a class="navbar-brand" href="/">Coursify</a>
             </div>
-           
+
                 </li>
                 <!-- /.dropdown -->
             </ul>
@@ -70,151 +67,263 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <!-- 
-<li>
-                            <a href="introduction.html"><i class="fa fa-dashboard fa-fw"></i> Introduction</a>
-                        </li>
- -->
-                       
-                        <li>
-                            <a href="table1.html"><i class="fa fa-table fa-fw"></i> Course Selection</a>
-                        </li>
-                        <li>
-                            <a href="table2.html"><i class="fa fa-table fa-fw"></i> Prerequisite Selection</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                       
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
 
-        <div id="page-wrapper">
+                        
+                        <li>
+                            <a href="/form1"><i class="fa fa-table fa-fw"></i>Basic information</a>
+                        </li>
+                        <li>
+                            <a href="/form2"><i class="fa fa-table fa-fw"></i> Prerequisite selection</a>
+                        </li>
+                        <li>
+                            <a href="/form3"><i class="fa fa-table fa-fw"></i>Interests</a>
+                        </li>
+                        <li>
+                            <a href="/dashboard1"><i class="fa fa-bar-chart-o fa-fw"></i>Dashboards<span class="fa "></span></a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Plan</a>
+                        </li>
+                   
+        </nav>
+         <div id="page-wrapper" id="page-top" class="index" style="background-image:url(/static/img/fall4.jpg)">
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-12">
                     <h1 class="page-header">Analysis Charts</h1>
-                <div class="form-group">
-                <label>Select the Course </label>
-                <select class="form-control">
-                <option>Cloud computing and virtualization</option>
-                <option>Software systems Engineering</option>
-                <!-- <option>Computer Science</option> -->
-                <option>Enterprise Software Technologies</option>
-                <option>Networking Software</option>
-                </select>
-                </div>
-                <div class="form-group">
-                <label>Select the Professor </label>
-                <select class="form-control">
-                <option></option>
-                <option></option>
-                <!-- <option>Computer Science</option> -->
-                <option></option>
-                <option></option>
-                </select>
-                </div>    
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default" id="page-top" class="index" style="background-image:url(/static/img/grey.jpg)">
+                        <div class="panel-heading" id="page-top" class="index" style="background-image:url(/static/img/grey.jpg)">
+                            Please Select the following:
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" action="/dashboard1validation" method="post">
+                                        <div class="form-group">
+                                            <!-- <label>Select the Course</label> -->
+                                             <!-- <div class="col-lg-6"> -->
+                							<div class="panel panel-default">
+                							<div class="panel-heading">
+                                            
+                                            <label>Select the Course </label>
+        									<select class="form-control" name="profcourses">
+        									<option selected="true" disabled="disabled">--Choose one--</option>
+                							<option value="cmpe273">CMPE273</option>
+                							<option value="cmpe202">CMPE202</option>
+                							<option value="cmpe272">CMPE272</option>
+                							<option value="cmpe281">CMPE281</option>
+                							<option value="cmpe283">CMPE283</option>
+                							</select>
+                                     <!--    </div> -->
+                                        </div>
+                                        </div>
+                                        </div>
+                                            <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                        </div>
+                                        <div class="form-group">
+                                        <div class="col-lg-6">
+                						<div class="panel panel-default">
+                						<div class="panel-heading">
+                                            <label>Select the Professor </label>
+                                            <select class="form-control"  name="professors">
+                                            	<option selected="true" disabled="disabled">--Choose one--</option>
+                                                <option value="Prof Rakesh Ranjan">Prof Rakesh Ranjan</option>
+                                                <option value="Prof Sithu Aung">Prof Sithu Aung</option>
+                                                <option value="Prof Paul Nguyen">Prof Paul Nguyen</option>
+                                                <option value="Prof Jerry Gao">Prof Jerry Gao</option>
+                                                <option value="Prof Richard Sinn">Prof Richard Sinn</option>
+                                            </select>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <button style="margin-left:450px;" type="submit" class="btn btn-default">Submit</button><br>
+                                        <br>
+                                        	<div class="col-lg-6">
+                                        		<div class="panel panel-default">
+                                        			<div class="panel-heading">
+                                        			 Area Chart Example
+                                        			 </div>
+                                        		<div class="panel-body">
+                                        				<!-- <iframe id="if1" width="50%" height="100" style="visibility:visible" src="http://www.w3schools.com"></iframe></div>	 --> 
+                                        		</div>
+                                        	</div>
+                                        </div>
+                                        	<div class="col-lg-6">
+                                        		<div class="panel panel-default">
+                                        			<div class="panel-heading">
+                                        			 Bar Chart Example
+                                        			 </div>
+                                        		<div class="panel-body">
+                                        				<div id="morris-area-chart"></div>	 
+                                        		</div>
+                                        	</div>
+                                        </div>	
+                                        	<div class="col-lg-6">
+                                        		<div class="panel panel-default">
+                                        			<div class="panel-heading">
+                                        			 Line Chart Example
+                                        			 </div>
+                                        		<div class="panel-body">
+                                        				<div id="morris-area-chart"></div>	 
+                                        		</div>
+                                        	</div>
+                                        </div>		 
+                                        	<div class="col-lg-6">
+                                        		<div class="panel panel-default">
+                                        			<div class="panel-heading">
+                                        			 Donut Chart Example
+                                        			 </div>
+                                        		<div class="panel-body">
+                                        				<div id="morris-area-chart"></div>	 
+                                        		</div>
+                                        	</div>
+                                        </div>
+                                    </form> 
+
+     <!-- 
+  <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Analysis Chart</h1>
+                </div>
+                <!~~ /.col-lg-12 ~~>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Please select the following:
+                        </div>
+                        </div>
+                        </div>
+                        </div>   
+                <div class="form-group">
+                <form role="form" action="/dashboard11validation" method="post">
+                <div class="form-group">
+                                            <!~~ <label>Select the Course</label> ~~>
+                <div class="form-group">
+                <div class="col-lg-6">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                <label>Select the Course </label>
+        		<select class="form-control" name="courses">
+                <option value="cmpe273">CMPE273</option>
+                <option value="cmpe202">CMPE202</option>
+                <option value="cmpe272">CMPE272</option>
+                <option value="cmpe281">CMPE281</option>
+                <option value="cmpe283">CMPE283</option>
+                </select>
+                </div>
+                </div>
+                </div>
+                <div class="form-group">
+                <div class="col-lg-6">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                <label>Select the Professor </label>
+                <select class="form-control" name="professors">
+                <option value="Professor Rakesh Ranjan">Prof Rakesh Ranjan</option>
+                <option value="Professor Sithu Aung">Prof Sithu Aung</option>
+                <option value="Professor Paul Nguyen">Prof Paul Nguyen</option>
+                <option value="Professor Kong li">Prof Kong li</option>
+                <option value="Professor Jerry Gao">Prof Jerry Gao</option>
+                </select>
+                </div>
+                </div>
+                </div>  
+                </div>
+                <!~~ /.col-lg-12 ~~>
+            </div>
+           
+            <!~~ /.row ~~>
+            <div class="row">
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Area Chart Example
+                            
                         </div>
-                        <!-- /.panel-heading -->
+                        <!~~ /.panel-heading ~~>
                         <div class="panel-body">
                             <div id="morris-area-chart"></div>
                         </div>
-                        <!-- /.panel-body -->
+                        <!~~ /.panel-body ~~>
                     </div>
-                    <!-- /.panel -->
+                    <panel ~~>
                 </div>
-                <!-- /.col-lg-6 -->
+                <!~~ /.col-lg-6 ~~>
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Bar Chart Example
                         </div>
-                        <!-- /.panel-heading -->
+                        <!~~ /.panel-heading ~~>
                         <div class="panel-body">
                             <div id="morris-bar-chart"></div>
                         </div>
-                        <!-- /.panel-body -->
+                        <!~~ /.panel-body ~~>
                     </div>
-                    <!-- /.panel -->
+                    <!~~ /.panel ~~>
                 </div>
-                <!-- /.col-lg-6 -->
+                <!~~ /.col-lg-6 ~~>
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Line Chart Example
                         </div>
-                        <!-- /.panel-heading -->
+                        <!~~ /.panel-heading ~~>
                         <div class="panel-body">
                             <div id="morris-line-chart"></div>
                         </div>
-                        <!-- /.panel-body -->
+                        <!~~ /.panel-body ~~>
                     </div>
-                    <!-- /.panel -->
+                    <!~~ /.panel ~~>
                 </div>
-                <!-- /.col-lg-6 -->
+                <!~~ /.col-lg-6 ~~>
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Donut Chart Example
                         </div>
-                        <!-- /.panel-heading -->
+                        <!~~ /.panel-heading ~~>
                         <div class="panel-body">
                             <div id="morris-donut-chart"></div>
                         </div>
-                        <!-- /.panel-body -->
+                        <!~~ /.panel-body ~~>
                     </div>
-                    <!-- /.panel -->
+                    <!~~ /.panel ~~>
                 </div>
                
                     </div>
-                    <!-- /.panel -->
+                    <!~~ /.panel ~~>
                 </div>
-                <!-- /.col-lg-6 -->
+                <!~~ /.col-lg-6 ~~>
             </div>
-            <!-- /.row -->
+            <!~~ /.row ~~>
         </div>
-        <!-- /#page-wrapper -->
+        <!~~ /#page-wrapper ~~>
 
     </div>
-    <!-- /#wrapper -->
+    <!~~ /#wrapper ~~>
+ -->
 
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+     <script src="/static/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
+    <script src="/static/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="/static/dist/js/sb-admin-2.js"></script>
 
 </body>
 
