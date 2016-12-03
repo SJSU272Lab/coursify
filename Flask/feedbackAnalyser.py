@@ -26,8 +26,12 @@ def pushToElastic(feedback):
 
 def updateTechScore(course, professor, techScore):
     weightedTechScore = getProfCourseScore(course, professor)
+    pprint(weightedTechScore, "Old tech score for %s under %s" % (course,
+                                                                  professor))
     newWeightedTechScore = _addTechScore(weightedTechScore, techScore)
     _updateTechScore(course, professor, newWeightedTechScore)
+    pprint(newWeightedTechScore, "New tech score for %s under %s" %
+           (course, professor))
     return getProfCourseScore(course, professor)
 
 
