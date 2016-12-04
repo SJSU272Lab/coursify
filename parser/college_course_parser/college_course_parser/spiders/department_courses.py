@@ -32,7 +32,7 @@ class DepartmentCourses(scrapy.Spider):
         self.log("Finding prereqiste for " + course_name)
         temp = {}
         for course in self.courses:
-            pre_req_search = re.search("Prerequisite[s]?:[ ,\"\-(\w)*]+", course_description, re.IGNORECASE)
+            pre_req_search = re.search("[Pp]rerequisite[s]?:[ ,\"\-(\w)*]+", course_description, re.IGNORECASE)
             if pre_req_search:
                self.log("pre req search result " + pre_req_search.group(0) ) 
                if re.search(course, pre_req_search.group(0), re.IGNORECASE):
@@ -42,7 +42,7 @@ class DepartmentCourses(scrapy.Spider):
                     temp[course_name] ={}
                     temp[course_name]["coreq"] = []
                     temp[course_name]["prereq"] = [course]
-            co_req_search = re.search("corequisite[s]?:[ ,\"\-(\w)]+", course_description, re.IGNORECASE)
+            co_req_search = re.search("[cC]orequisite[s]?:[ ,\"\-(\w)]+", course_description, re.IGNORECASE)
             if co_req_search:
                self.log("co req search result " + pre_req_search.group(0) )
                if re.search(course, co_req_search.group(0), re.IGNORECASE):
