@@ -108,22 +108,13 @@
                                         <div class="form-group">
 
                                         <div class="form-group">
-                                            
+                                            {% for preReq in preReqs %}
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="OS">Operating Systems
+                                                    <input type="checkbox" value="1" name="{{preReq['id']}}">{{preReq['name']}}
                                                 </label>
                                             </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="DS">Database Design
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="OOPS">Object Oriented Programming and Data Structure
-                                                </label>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                                     </form>

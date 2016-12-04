@@ -13,9 +13,10 @@ def analyse(feedback):
     techScore = getTechScore(feedback['review'])
     logging.debug("TecScore: %s" % techScore)
     pushToElastic(feedback)
-    updateTechScore(course=feedback['course'],
-                    professor=feedback['professor'],
-                    techScore=techScore)
+    if techScore:
+        updateTechScore(course=feedback['course'],
+                        professor=feedback['professor'],
+                        techScore=techScore)
 
 
 def pushToElastic(feedback):

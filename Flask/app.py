@@ -1,7 +1,10 @@
 import flask
 import logging
 import json
+import pprint
+
 from feedbackAnalyser import analyse
+from recommender.recommend import *
 
 from flask import request, session, url_for, redirect
 
@@ -35,7 +38,7 @@ def form1validation():
     session['major'] = request.form['major']
     session['minor'] = request.form['minor']
     session['gradYear'] = request.form['gradYear']
-    session['CulminatingExp'] = request.form['CulminatingExp']
+    session['culminatingExp'] = request.form['CulminatingExp']
 
     logInfo()
     return redirect(url_for('form2'))
@@ -43,12 +46,11 @@ def form1validation():
 
 @app.route('/form2validation', methods=['POST'])
 def form2validation():
-    # TODO don't trust user input, check if we can make this more secure
-    # TODO use a iterator
-    # TOOD maintain config details separately
-    session['OS'] = request.form.get('OS', 0)
-    session['DS'] = request.form.get('DS', 0)
-    session['OOPS'] = request.form.get('OOPS', 0)
+    preReqs = getPreReqs(session['department'])
+    session['preReqs'] = []
+    for preReq in preReqs:
+        if request.form.get(preReq['id'], 0):
+            session['preReqs'].append(preReq)
     logInfo()
     return redirect(url_for('form3'))
 
@@ -56,10 +58,11 @@ def form2validation():
 @app.route('/form3validation', methods=['POST'])
 def form3validation():
     global tech_list
-    tech_liking = {}
+    techLiking = []
     for tech in tech_list:
-        tech_liking[tech] = bool(request.form.get(tech, False))
-    session['tech_liking'] = tech_liking
+        if bool(request.form.get(tech, False)):
+            techLiking.append(tech)
+    session['techLiking'] = techLiking
     logInfo()
     return redirect(url_for('courseSuggetion'))
 
@@ -84,14 +87,15 @@ def feedbackvalidation():
 @app.route('/form1')
 def form1():
     # TODO get data from a DB for the from
-    # Have hard coded it for now, since we are have limited data
+    # Have hard coded it for now, since we have limited data
     return flask.render_template('form1.html')
 
 
 @app.route('/form2')
 def form2():
     # TODO use template inheritance to avoid duplicaiton of code
-    return flask.render_template('form2.html')
+    return flask.render_template('form2.html',
+                                 preReqs=getPreReqs(session['department']))
 
 
 @app.route('/form3')
@@ -103,8 +107,27 @@ def form3():
 
 @app.route('/courseSuggetion')
 def courseSuggetion():
-    return "TODO"
+    something = {}
+    something['techLiking'] = session['techLiking']
+    something['preReqs'] = session['preReqs']
+    something['coreSubjects'] = recommendCoreSubjects(session['department'],
+                                                      session['techLiking'])
+    something['culmExpCourses'] = getCulmExpCourses(session['department'],
+                                                    session['culminatingExp'])
+    something['majorSubjects'] = recommendMajorSubjets(session['major'],
+                                                       session['techLiking'])
+    something['minorSubjects'] = [recommendMinorSubjet(session['major'],
+                                                       session['techLiking'])
+                                  ]
+    something['electives'] = recommendElectives(session['techLiking'], count=3,
+                                                exp=something['coreSubjects'] +
+                                                something['culmExpCourses'] +
+                                                something['majorSubjects'] +
+                                                something['minorSubjects'])
+    # return courses
     # return flask.render_template('courseSuggetion.html')
+    logging.debug(pprint.pformat(something))
+    return "work in progress"
 
 
 @app.route('/feedback')
