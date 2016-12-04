@@ -58,7 +58,7 @@ def create_expense():
     coreq_list =  Corequisite.query.filter(Corequisite.primary_course.in_(course_in_list)).all()
     
     for course in prereq_list:
-      if not (validPrereqCourse(course_in_list, course)):
+      if not (validPrereqCourse(courses, course)):
         if not (str(course.primary_course + "WhichViolates_prereq") in data_out.keys()):
            data_out[course.primary_course + "WhichViolates_prereq"] = [course.prereq_course]
         else:
@@ -67,7 +67,7 @@ def create_expense():
 
 
     for course in coreq_list:
-      if  not (validCoreqCourse(course_in_list, course)):
+      if  not (validCoreqCourse(courses, course)):
         if not (str(course.primary_course + "WhichViolates_coreq") in data_out.keys()):
            data_out[course.primary_course + "WhichViolates_coreq"] = [course.coreq_course]
         else:
