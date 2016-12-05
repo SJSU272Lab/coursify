@@ -145,6 +145,22 @@ def feedback():
 def landingPage():
     return flask.render_template('landingPage.html')
 
+@app.route('/about')
+def about():
+    # TODO get data from a DB for the from
+    # Have hard coded it for now, since we are have limited data
+    return flask.render_template('about.html')
+
+@app.route('/forms')
+def plan():
+    # TODO get data from a DB for the from
+    # Have hard coded it for now, since we are have limited data
+    sampleCourses = [['CMPE202','CMPE272','CMPE273'],
+                     ['CMPE281','CMPE275','CMPE239'],
+		     ['CMPE287','CMPE295','CMPE294'],
+		     ['CMPE283','CMPE297','CMPE226']
+                    ]
+    return flask.render_template('forms.html', courses=sampleCourses)
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
