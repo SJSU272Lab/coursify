@@ -113,6 +113,33 @@ def getProfCourseScore(course, professor):
     return val
 
 
+def getCourseScore(course):
+    keys = _keys("%s_*" % course)
+    score = {}
+    for key in keys:
+        tempscore = _getter(key)
+        # Duplication of code
+        # TODO make a functionto accept two tech scores and and add them
+        for tech in tempscore:
+            tempTotal = tempscore[tech]['value'] * tempscore[tech]['n']
+            tempN = tempscore[tech]['n']
+            if tech in score:
+                presentTotal = score[tech].get('value', 0) * score[tech].get(
+                    'n', 0)
+                # pprint(tempTotal, "tempTotal")
+                tempN += score[tech].get('n', 0)
+                tempTotal += presentTotal
+            else:
+                score[tech] = {}
+            if tempN:
+                score[tech]['value'] = tempTotal / tempN
+                score[tech]['n'] = tempN
+            else:
+                score[tech]['value'] = 0
+                score[tech]['n'] = 0
+    return score
+
+
 def pprint(x, message=None):
     logging.debug("-" * 10)
     logging.debug(message)
@@ -121,15 +148,24 @@ def pprint(x, message=None):
     logging.debug("-" * 10)
 
 
+def _keys(pattern="*"):
+    return r.keys(pattern)
+
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     # print getProfCourseScore("CMPE123", "ProfA")
     # key = "CMPE123_ProfA"
-    r.delete("CMPE123_ProfA")
+
+    for key in r.keys("CMPE123*"):
+        r.delete(key)
     # _updateTechScore(course="CMPE123",
     #                  professor="ProfA",
     #                  newTechScore={"docker": 0})
     pprint(getProfCourseScore("CMPE123", "ProfA"), "should be empty tech list")
-    pprint(updateTechScore("CMPE123", "ProfA", {"docker": 0.6}), "1st")
-    pprint(updateTechScore("CMPE123", "ProfA", {"docker": 0.4}), "2nd")
-    pprint(updateTechScore("CMPE123", "ProfA", {"flask": 0.9}), "2nd")
+    pprint(updateTechScore("CMPE123", "ProfA", {"docker": 0.6,
+                                                "flask": 0.4}), "1st")
+    pprint(updateTechScore("CMPE123", "ProfB", {"docker": 0.4,
+                                                "elastic": 0.8}), "2nd")
+    pprint(getCourseScore("CMPE123"))
+    # pprint(updateTechScore("CMPE123", "ProfA", {"flask": 0.9}), "2nd")
