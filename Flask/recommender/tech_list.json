@@ -1,6 +1,12 @@
 [
-	"docker",
-	"flask",
-	"django",
-	"elastic"
+	"Docker",
+	"Flask",
+	"Django",
+	"Elastic",
+	"Embedded",
+	"Distributed systems",
+	"NoSQL",
+	"Cyber security",
+	"Relational Databases",
+	"Hadoop"
 ]

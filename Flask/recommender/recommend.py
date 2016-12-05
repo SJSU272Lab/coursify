@@ -224,7 +224,7 @@ def recommendElectives(techLiking, department, count=None, exp=[]):
     return electives
 
 
-def getSemWiseSubjects(someDic):
+def getSemwiseSubjects(someDic):
     # TODO use some config file to define constraints
     orderedSubs = someDic['preReqs'] +\
         someDic['coreSubjects'] +\

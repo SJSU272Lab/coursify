@@ -37,7 +37,7 @@ def form1validation():
     session['department'] = request.form['department']
     session['major'] = request.form['major']
     session['minor'] = request.form['minor']
-    session['gradYear'] = request.form['gradYear']
+    # session['gradYear'] = request.form['gradYear']
     session['culminatingExp'] = request.form['CulminatingExp']
 
     logInfo()
@@ -133,9 +133,9 @@ def courseSuggetion():
         tempDict['minorSubjects'])
     # return courses
     # return flask.render_template('courseSuggetion.html')
-    tempDict = rec.getSemWiseSubjects(tempDict)
-    logging.debug(pprint.pformat(tempDict))
-    return "work in progress"
+    session['semwiseSubs'] = rec.getSemwiseSubjects(tempDict)
+    logging.debug(pprint.pformat(session['semwiseSubs']))
+    return redirect(url_for('plan'))
 
 
 @app.route('/feedback')
@@ -153,22 +153,19 @@ def feedback():
 def landingPage():
     return flask.render_template('landingPage.html')
 
+
 @app.route('/about')
 def about():
-    # TODO get data from a DB for the from
-    # Have hard coded it for now, since we are have limited data
     return flask.render_template('about.html')
 
-@app.route('/forms')
+
+@app.route('/plan')
 def plan():
-    # TODO get data from a DB for the from
-    # Have hard coded it for now, since we are have limited data
-    sampleCourses = [['CMPE202','CMPE272','CMPE273'],
-                     ['CMPE281','CMPE275','CMPE239'],
-		     ['CMPE287','CMPE295','CMPE294'],
-		     ['CMPE283','CMPE297','CMPE226']
-                    ]
-    return flask.render_template('forms.html', courses=sampleCourses)
+    if session.get('semwiseSubs', None) is None:
+        return "Please follow steps sequentially"
+    return flask.render_template('forms.html',
+                                 courses=session['semwiseSubs'])
+
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
