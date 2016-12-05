@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Web UI Coursify</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/static/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body style="background-image:url(/static/img/light.jpg)">
+<style type="text/css">
+<!--
+.DragContainer, .OverDragContainer {
+  float: left;
+  margin:10px;
+  width: 250px;
+  border: #669999 2px solid;
+  padding: 5px;
+  position: relative;
+  top: 50%;
+  transform: translateX(100%);
+  
+  
+  
+}
+.DragBox, .OverDragBox, .DragDragBox, .miniDragBox {
+  border: #000 1px solid;
+  padding: 2px;
+  font-size: 35px;
+  margin-bottom: 5px;
+  width: 240px;
+  cursor: pointer;
+  font-family: verdana, tahoma, arial;
+  background-color: white;
+}
+.OverDragContainer {
+	background-color: #eee;
+}
+.OverDragBox, .DragDragBox {
+  background-color: #ffff99;
+}
+.DragDragBox {
+  filter: alpha(opacity=50);
+  background-color: #ff99cc;
+}
+legend {
+  font-weight: bold;
+  font-size: 12px;
+  color: #666699;
+  font-family: verdana, tahoma, arial;
+}
+fieldset {
+  padding: 3px;
+}
+-->
+</style>
+
+
+     <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header" style="background-image:url(/static/img/light.jpg)">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" style="display:block; width:1280px;">Coursify</a>
+            </div>
+       </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation" style="background-image:url(/static/img/light.jpg)">
+                <div class="sidebar-nav navbar-collapse" style="background-image:url(/static/img/light.jpg)">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+              
+                        <li>
+                            <a href="/form1"><i class="fa fa-table fa-fw"></i>Basic information</a>
+                        </li>
+                        <li>
+                            <a href="/form2"><i class="fa fa-table fa-fw"></i> Prerequisite selection</a>
+                        </li>
+                        <li>
+                            <a href="/form3"><i class="fa fa-table fa-fw"></i>Interests</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Dashboards<span class="fa "></span></a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Plan</a>
+                        </li>
+                   
+        </nav>
+	<div id="page-wrapper" style="background-image:url(/static/img/header.jpg)">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header" style="color:white;">Create A Plan</h1>
+		</div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default" style="background-image:url(/static/img/light.jpg)">
+                        <div class="panel-heading" style="background-image:url(/static/img/light.jpg)">
+			   This is a default suggested plan created for you!! Don't like it.. then change it. Just drag and drop courses in columns for the semesters and we will help you validate your choices and create a plan.
+                        </div>
+                        <div class="panel-body" style="background-image:url(/static/img/light.jpg)">
+                           
+                                
+		    {% for semester in courses %}
+   			<div class="DragContainer" id="DragContainer{{ loop.index }}" ondrop="drop(event,this)" ondragover="allowDrop(event)" align="center" style="text-align:center"; margin: 0 auto;>
+			<div style="text-align:center"; style="font-size:180%";border:1px solid red>
+				<p><font size="6">SEMESTER {{ loop.index }}</p>
+			</div>
+   		      {% for semCourse in semester %}
+			<div class="DragBox" id={{semCourse}} overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)" align="center">{{semCourse}}</div>
+   		      {% endfor %}
+                      </div>
+ 		  {% endfor %}  
+                     </div>
+                <!-- /.col-lg-12 -->
+            </div>
+	</div>
+
+
+
+
+
+
+<script>
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+
+function drop(ev, el) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  el.appendChild(document.getElementById(data));
+}
+
+</script>
+
+ 
+   
+
+<!--the mouse over and dragging class are defined on each item-->
+<!--div class="DragContainer" id="DragContainer1" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+ <div class="DragBox" id="Item1" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #1</div>
+ <div class="DragBox" id="Item2" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #2</div>
+ <div class="DragBox" id="Item3" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #3</div>
+</div>
+<div class="DragContainer" id="DragContainer2" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+ <div class="DragBox" id="Item4" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #4</div>
+ <div class="DragBox" id="Item5" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #5</div>
+ <div class="DragBox" id="Item6" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #6</div>
+ 
+</div>
+<div class="DragContainer" id="DragContainer3" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+ <div class="DragBox" id="Item7" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #7</div>
+ <div class="DragBox" id="Item8" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #8</div>
+ <div class="DragBox" id="Item9" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #9</div>
+ </div>
+</div>
+<div class="DragContainer" id="DragContainer4" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+ <div class="DragBox" id="Item10" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #10</div>
+ <div class="DragBox" id="Item11" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #11</div>
+ <div class="DragBox" id="Item12" overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)">Item #12</div>
+</div-->
+
+
+</body>
+</html>

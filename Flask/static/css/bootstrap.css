@@ -187,6 +187,20 @@ td,
 th {
   padding: 0;
 }
+//chaya changes start
+table th, table td {
+    width: 200px;
+    height:70px;
+}
+table span {
+    display:block;
+    background-color: #ccc;
+    border: 1px solid black;
+    color: fff;
+    height: 30px;
+    width: 100%;
+}
+//chaya changes end
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
