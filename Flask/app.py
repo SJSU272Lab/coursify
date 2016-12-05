@@ -4,7 +4,7 @@ import json
 import pprint
 
 from feedbackAnalyser import analyse
-from recommender.recommend import *
+import recommender.recommend as rec
 
 from flask import request, session, url_for, redirect
 
@@ -46,11 +46,11 @@ def form1validation():
 
 @app.route('/form2validation', methods=['POST'])
 def form2validation():
-    preReqs = getPreReqs(session['department'])
+    preReqs = rec.getPreReqs(session['department'])
     session['preReqs'] = []
     for preReq in preReqs:
         if request.form.get(preReq['id'], 0):
-            session['preReqs'].append(preReq)
+            session['preReqs'].append(preReq['course'])
     logInfo()
     return redirect(url_for('form3'))
 
@@ -95,7 +95,7 @@ def form1():
 def form2():
     # TODO use template inheritance to avoid duplicaiton of code
     return flask.render_template('form2.html',
-                                 preReqs=getPreReqs(session['department']))
+                                 preReqs=rec.getPreReqs(session['department']))
 
 
 @app.route('/form3')
@@ -107,33 +107,41 @@ def form3():
 
 @app.route('/courseSuggetion')
 def courseSuggetion():
-    something = {}
-    something['techLiking'] = session['techLiking']
-    something['preReqs'] = session['preReqs']
-    something['coreSubjects'] = recommendCoreSubjects(session['department'],
-                                                      session['techLiking'])
-    something['culmExpCourses'] = getCulmExpCourses(session['department'],
-                                                    session['culminatingExp'])
-    something['majorSubjects'] = recommendMajorSubjets(session['major'],
-                                                       session['techLiking'])
-    something['minorSubjects'] = [recommendMinorSubjet(session['major'],
-                                                       session['techLiking'])
-                                  ]
-    something['electives'] = recommendElectives(session['techLiking'], count=3,
-                                                exp=something['coreSubjects'] +
-                                                something['culmExpCourses'] +
-                                                something['majorSubjects'] +
-                                                something['minorSubjects'])
+    tempDict = {}
+    tempDict['techLiking'] = session['techLiking']
+    tempDict['preReqs'] = session['preReqs']
+    tempDict['coreSubjects'] = rec.recommendCoreSubjects(
+        session['department'],
+        session['techLiking'])
+    tempDict['culmExpCourses'] = rec.getCulmExpCourses(
+        session['department'],
+        session['culminatingExp'])
+    tempDict['majorSubjects'] = rec.recommendMajorSubjets(
+        session['major'],
+        session['techLiking'])
+    tempDict['minorSubjects'] = [rec.recommendMinorSubjet(
+        session['minor'],
+        session['techLiking'])]
+    tempDict['electives'] = rec.recommendElectives(
+        session['techLiking'],
+        department=session[
+            'department'],
+        count=3,
+        exp=tempDict['coreSubjects'] +
+        tempDict['culmExpCourses'] +
+        tempDict['majorSubjects'] +
+        tempDict['minorSubjects'])
     # return courses
     # return flask.render_template('courseSuggetion.html')
-    logging.debug(pprint.pformat(something))
+    tempDict = rec.getSemWiseSubjects(tempDict)
+    logging.debug(pprint.pformat(tempDict))
     return "work in progress"
 
 
 @app.route('/feedback')
 def feedback():
     # TODO get courses from DB
-    courses = ["cmpe273", "cmpe202", "cmpe272", "cmpe281", "cmpe283"]
+    courses = rec.getAllCoursesList()
     # TODO get proffersors from DB
     professors = ["Prof A", "Prof B", "Prof C", "Prof D"]
     return flask.render_template('feedback.html',

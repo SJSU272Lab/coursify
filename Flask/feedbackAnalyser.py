@@ -157,15 +157,15 @@ if __name__ == "__main__":
     # print getProfCourseScore("CMPE123", "ProfA")
     # key = "CMPE123_ProfA"
 
-    for key in r.keys("CMPE123*"):
+    for key in r.keys("CMPE272*"):
         r.delete(key)
-    # _updateTechScore(course="CMPE123",
+    # _updateTechScore(course="CMPE272",
     #                  professor="ProfA",
     #                  newTechScore={"docker": 0})
-    pprint(getProfCourseScore("CMPE123", "ProfA"), "should be empty tech list")
-    pprint(updateTechScore("CMPE123", "ProfA", {"docker": 0.6,
+    pprint(getProfCourseScore("CMPE272", "ProfA"), "should be empty tech list")
+    pprint(updateTechScore("CMPE272", "ProfA", {"docker": 0.6,
                                                 "flask": 0.4}), "1st")
-    pprint(updateTechScore("CMPE123", "ProfB", {"docker": 0.4,
+    pprint(updateTechScore("CMPE272", "ProfB", {"docker": 0.4,
                                                 "elastic": 0.8}), "2nd")
-    pprint(getCourseScore("CMPE123"))
-    # pprint(updateTechScore("CMPE123", "ProfA", {"flask": 0.9}), "2nd")
+    pprint(getCourseScore("CMPE272"))
+    # pprint(updateTechScore("CMPE272", "ProfA", {"flask": 0.9}), "2nd")
