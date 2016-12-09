@@ -1,0 +1,6 @@
+redis==2.10.5
+MySQL-python
+sqlalchemy
+flask==0.10.1
+flask-sqlalchemy==1.0
+

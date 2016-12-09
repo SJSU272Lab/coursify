@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://userdbcmpe281:cmpe281project@mydb-cmpe281.csijd9oqjoza.us-west-2.rds.amazonaws.com/272project'
+app.config['SQLALCHEMY_DATABASE_URI'] ='mysql:///college_courses'
 db = SQLAlchemy(app)
 
 class Corequisite(db.Model):
