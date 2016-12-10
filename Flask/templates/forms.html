@@ -165,12 +165,63 @@ fieldset {
             </div>
 	</div>
 
-
-
-
-
-
 <script>
+
+function cleanSlate(){
+  var courses = getElementsByClassName("DragBox");
+  for(var i = 0; i<courses.length ;i++){
+    courses[i].style.backgroundColor = "white";
+  }
+}
+
+function validateCourses(courses){
+   cleanSlate()
+   var violatedCourse = Object.keys(JSON.parse(courses)
+   for (var i =0;i< violatedCourse.length; i++){
+      vc = violatedCourse[i].match(/(CMPE (\d*)[A-Z]?)(WhichViolates)/)[1]
+      console.log("regex: " + vc)
+      vc = vc.split(" ")[0] +  vc.split(" ")[1]
+      console.log("vc : " + vc)
+      a = document.getElementById(vc)
+      a.style.backgroundColor = "#fa4747"
+   }
+}
+
+function prereqValidator(courses_selected){
+  xmlhttp = new XMLHttpRequest();
+  var url = "http://ec2-35-165-109-248.us-west-2.compute.amazonaws.com/prerequisite_check";
+  xmlhttp.open("POST", url, true);
+  xmlhttp.setRequestHeader("Content-type", "application/json");
+  xmlhttp.onreadystatechange = function () { 
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          validateCourses(xmlhttp.responseText);
+      }
+  }  
+  xmlhttp.send(JSON.stringify({"course_list":courses_selected}));
+}
+
+function coursesSelected(){
+  //#fa4747
+  var sems = document.getElementsByClassName("DragContainer");
+   result = [];
+  for(var i = 0 ; i < sems.length; i++){
+      courses = sems[i].getElementsByClassName("DragBox");
+      var sem_courses = [];
+      for(var j=0; j< courses.length; j++){
+        var data = courses[j].innerHTML;
+        data = data.match(/(CMPE)(\d*[A-Z]?)/).splice(1,3).join(" ");
+        sem_courses.push(data);
+      }
+      result.push(sem_courses)
+  }
+  return result;
+}
+
+function checkprerequisite(){
+  courses = coursesSelected();
+  course_violation = prereqValidator(courses);
+
+}
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -185,6 +236,7 @@ function drop(ev, el) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   el.appendChild(document.getElementById(data));
+  checkprerequisite();
 }
 
 </script>

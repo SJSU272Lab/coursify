@@ -6,6 +6,8 @@ from sqlalchemy.dialects.mysql import VARCHAR
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] ='mysql:///college_courses'
+app.config['SQLALCHEMY_POOL_SIZE'] = 3
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 db = SQLAlchemy(app)
 
 class Prerequisite(db.Model):

@@ -73,7 +73,7 @@ def create_expense():
         else:
            data_out[course.primary_course + "WhichViolates_coreq"].append(course.coreq_course)
 
-    resp = Response(status=201, mimetype='application/json')
+    resp = Response(status=200, mimetype='application/json')
     resp.data = json.dumps(data_out)
     return resp
 
