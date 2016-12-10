@@ -159,7 +159,7 @@ def getAllCoursesList(department="Software Engineering"):
         cFile = os.path.join(os.path.dirname(__file__), "CMPE-courses.json")
         with open(cFile) as fp:
             courses = json.load(fp)
-        return [x for x in courses]
+        return sorted([x for x in courses])
 
 
 def weightSubjects(subjects, techLiking):
