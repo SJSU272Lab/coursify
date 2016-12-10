@@ -125,11 +125,11 @@ fieldset {
                         <li>
                             <a href="/form3"><i class="fa fa-table fa-fw"></i>Interests</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Dashboards<span class="fa "></span></a>
-                        </li>
+                        </li> -->
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Plan</a>
+                            <a href="/plan"><i class="fa fa-edit fa-fw"></i>Plan</a>
                         </li>
                    
         </nav>
@@ -151,12 +151,12 @@ fieldset {
                            
                                 
 		    {% for semester in courses %}
-   			<div class="DragContainer" id="DragContainer{{ loop.index }}" ondrop="drop(event,this)" ondragover="allowDrop(event)" align="center" style="text-align:center"; margin: 0 auto;>
+   			<div class="DragContainer" id="DragContainer{{ loop.index }}" ondrop="drop(event,this)" ondragover="allowDrop(event)" align="center" style="text-align:center; "; margin: 0 auto;>
 			<div style="text-align:center"; style="font-size:180%";border:1px solid red>
 				<p><font size="6">SEMESTER {{ loop.index }}</p>
 			</div>
    		      {% for semCourse in semester %}
-			<div class="DragBox" id={{semCourse}} overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)" align="center">{{semCourse}}</div>
+			<div class="DragBox" id={{semCourse}} overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)" align="center" style="background-color: lightblue">{{semCourse}}</div>
    		      {% endfor %}
                       </div>
  		  {% endfor %}  
