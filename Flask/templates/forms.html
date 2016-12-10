@@ -176,7 +176,7 @@ function cleanSlate(){
 
 function validateCourses(courses){
    cleanSlate()
-   var violatedCourse = Object.keys(JSON.parse(courses)
+   var violatedCourse = Object.keys(JSON.parse(courses))
    for (var i =0;i< violatedCourse.length; i++){
       vc = violatedCourse[i].match(/(CMPE (\d*)[A-Z]?)(WhichViolates)/)[1]
       console.log("regex: " + vc)
