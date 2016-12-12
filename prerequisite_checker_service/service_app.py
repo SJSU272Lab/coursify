@@ -9,15 +9,11 @@ def validPrereqCourse(courses_selected, pre_req):
         if (pre_req.prereq_course in course):
             prereq_not_found = False
             break;
-
     if prereq_not_found:
         return False
-        
-
     for k, course in enumerate(courses_selected):
         if (pre_req.primary_course in course):
           break;
-
     if i >= k:
       return False;
     return True
@@ -30,11 +26,9 @@ def validCoreqCourse(courses_selected, co_req):
            break;
     if coreq_not_found:
         return False
-
     for k, course in enumerate(courses_selected):
         if (co_req.primary_course) in course:
            break;
-
     if i > k:
       return False;
     return True
@@ -42,8 +36,7 @@ def validCoreqCourse(courses_selected, co_req):
 
 app = Flask(__name__)
 @app.route('/prerequisite_check', methods=['POST'])
-def create_expense():
-
+def validate_prereq():
     #if request.is_json:
     args = request.get_json(silent=True)
     #else:
@@ -64,8 +57,6 @@ def create_expense():
         else:
            data_out[course.primary_course + "WhichViolates_prereq"].append(course.prereq_course)
 
-
-
     for course in coreq_list:
       if  not (validCoreqCourse(courses, course)):
         if not (str(course.primary_course + "WhichViolates_coreq") in data_out.keys()):
@@ -77,16 +68,25 @@ def create_expense():
     resp.data = json.dumps(data_out)
     return resp
 
-#@app.route('/v1/expenses/<expense_id>', methods=['GET'])
-#def get_expense(expense_id):
-#    expense =  Expense.query.get(expense_id)
-#    print expense_id
-#    if expense is not None:
-#        resp = Response(status=200, mimetype='application/json')
-#        resp.data = json.dumps(expense.toJson)
-#    else:
-#        resp = Response(status=404)
-#    return resp
+
+@app.route('/prerequisite_check', methods=['GET'])
+def get_prereq():
+    #if request.is_json:
+    course = request.args.get('course')
+    data_out = {"prereq": [], "coreq": []}
+    prereq_list =  Prerequisite.query.filter(Prerequisite.primary_course == course).all()
+
+    coreq_list =  Corequisite.query.filter(Corequisite.primary_course == course).all()
+    
+    for crse in prereq_list:
+      data_out["prereq"].append(crse.prereq_course)
+
+    for crse in coreq_list:
+      data_out["coreq"].append(crse.coreq_course)
+
+    resp = Response(status=200, mimetype='application/json')
+    resp.data = json.dumps(data_out)
+    return resp
 
 if __name__ == "__main__":
     db.create_all()
