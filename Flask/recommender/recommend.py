@@ -224,13 +224,30 @@ def recommendElectives(techLiking, department, count=None, exp=[]):
     return electives
 
 
+def getConstraints(sub):
+    # TODO integrate with REST service
+    return [], []
+
+
 def getSemwiseSubjects(someDic):
-    # TODO use some config file to define constraints
-    orderedSubs = someDic['preReqs'] +\
-        someDic['coreSubjects'] +\
+    orderedSubs = someDic['preReqs'] + \
+        someDic['coreSubjects'] + \
         someDic['majorSubjects'] + \
-        someDic['minorSubjects'] +\
-        someDic['electives']
+        someDic['minorSubjects']
+
+    updatedElectives = []
+    for sub in someDic['electives']:
+        preReqs, coReqs = getConstraints(sub)
+        constraints = preReqs + coReqs
+        # TODO
+        # assuming prereqs themselves don't have prereqs
+        # will fix it later
+        for contraint in constraints:
+            if contraint not in orderedSubs + updatedElectives:
+                updatedElectives.append(contraint)
+        updatedElectives.append(sub)
+
+    orderedSubs += updatedElectives[:3]
 
     if len(someDic['preReqs']) < 3:
         return [orderedSubs[:3],

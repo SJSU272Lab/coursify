@@ -37,6 +37,8 @@ def form1validation():
     session['department'] = request.form['department']
     session['major'] = request.form['major']
     session['minor'] = request.form['minor']
+    if session['major'] == session['minor']:
+        return "Major and minor cannot be the same!", 400
     # session['gradYear'] = request.form['gradYear']
     session['culminatingExp'] = request.form['CulminatingExp']
 
