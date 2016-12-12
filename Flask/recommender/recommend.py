@@ -2,6 +2,8 @@ import logging
 import json
 import os
 import sys
+import requests
+
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 import feedbackAnalyser as fa
@@ -225,8 +227,17 @@ def recommendElectives(techLiking, department, count=None, exp=[]):
 
 
 def getConstraints(sub):
-    # TODO integrate with REST service
-    return [], []
+    # TODO store url in a config file
+    url = "http://ec2-35-162-102-240.us-west-2.compute.amazonaws.com/" \
+          "prerequisite_check?course=CMPE%20" + sub[4:]
+    response = requests.get(url)
+    data = response.json()
+    prereqs = [x[:4] + x[5:] for x in data['prereq']]
+    coreqs = [x[:4] + x[5:] for x in data['coreq']]
+    logging.info("For sub %s:" % sub)
+    logging.info("Prereqs: %s" % prereqs)
+    logging.info("Coreqs: %s" % coreqs)
+    return prereqs, coreqs
 
 
 def getSemwiseSubjects(someDic):
@@ -235,17 +246,24 @@ def getSemwiseSubjects(someDic):
         someDic['majorSubjects'] + \
         someDic['minorSubjects']
 
-    updatedElectives = []
+    independantSubs = []
+    dependantSubs = []
     for sub in someDic['electives']:
         preReqs, coReqs = getConstraints(sub)
         constraints = preReqs + coReqs
-        # TODO
-        # assuming prereqs themselves don't have prereqs
-        # will fix it later
+        flag = False
         for contraint in constraints:
-            if contraint not in orderedSubs + updatedElectives:
-                updatedElectives.append(contraint)
-        updatedElectives.append(sub)
+            if contraint not in orderedSubs + independantSubs + dependantSubs:
+                # TODO
+                # assuming prereqs themselves don't have prereqs themselves
+                # will fix it later
+                independantSubs.append(contraint)
+                flag = True
+        if flag:
+            dependantSubs.append(sub)
+        else:
+            independantSubs.append(sub)
+    updatedElectives = independantSubs + dependantSubs
 
     orderedSubs += updatedElectives[:3]
 
