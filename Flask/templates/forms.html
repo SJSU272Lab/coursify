@@ -29,6 +29,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 </head>
 
@@ -156,7 +157,7 @@ fieldset {
 				<p><font size="6">SEMESTER {{ loop.index }}</p>
 			</div>
    		      {% for semCourse in semester %}
-			<div class="DragBox" id={{semCourse}} overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)" align="center" style="background-color: lightblue">{{semCourse}}</div>
+			<div class="DragBox" id={{semCourse}} overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)" align="center" style="background-color: lightblue"> <a href="http://info.sjsu.edu/web-dbgen/catalog/courses/{{semCourse}}.html">{{semCourse}}</a></div>
    		      {% endfor %}
                       </div>
  		  {% endfor %}  
@@ -239,6 +240,11 @@ function drop(ev, el) {
   el.appendChild(document.getElementById(data));
   checkprerequisite();
 }
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+    checkprerequisite();
+})
 </script>
 
  

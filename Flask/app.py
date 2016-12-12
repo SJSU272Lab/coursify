@@ -14,7 +14,7 @@ app.secret_key = 'aijdfAJKFJq234kjkdfsa]adfsdfasadfjjq4rjjJHJHjhakgj'
 
 with open('recommender/tech_list.json') as fp:
     tech_list = json.load(fp)
-tech_list = [str(tech) for tech in tech_list]
+tech_list = [str(tech).lower() for tech in tech_list]
 
 
 @app.route('/formTest')
