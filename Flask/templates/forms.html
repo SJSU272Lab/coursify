@@ -156,7 +156,7 @@ fieldset {
 				<p><font size="6">SEMESTER {{ loop.index }}</p>
 			</div>
    		      {% for semCourse in semester %}
-			<div class="DragBox" id={{semCourse}} overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)" align="center" style="background-color: lightblue">{{semCourse}}</div>
+			<div class="DragBox" id={{semCourse}} overClass="OverDragBox" dragClass="DragDragBox" draggable="true" ondragstart="drag(event)" align="center" style="background-color: lightblue"> <a href="http://info.sjsu.edu/web-dbgen/catalog/courses/{{semCourse}}.html">{{semCourse}}</a></div>
    		      {% endfor %}
                       </div>
  		  {% endfor %}  
