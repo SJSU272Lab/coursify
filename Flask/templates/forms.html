@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -30,6 +29,16 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+
+    <script>
+      function downloadPdf(){
+        var printDoc = new jsPDF();
+        var panel_data = document.getElementsByClassName("panel-body")[0]
+        printDoc.fromHTML(panel_data, 10, 10, {'width': 800});
+        printDoc.output("dataurlnewwindow");
+      }
+    </script>
 
 </head>
 
@@ -45,10 +54,7 @@
   position: relative;
   top: 50%;
   transform: translateX(0%);
-  border-radius: 25px;
-  
-  
-  
+  border-radius: 25px; 
 }
 .DragBox, .OverDragBox, .DragDragBox, .miniDragBox {
   border: #000 1px solid;
@@ -70,6 +76,18 @@
 .DragDragBox {
   filter: alpha(opacity=50);
   background-color: #ff99cc;
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 legend {
   font-weight: bold;
@@ -146,7 +164,7 @@ fieldset {
                 <div class="col-lg-12">
                     <div class="panel panel-default" style="background-image:url(/static/img/light.jpg)">
                         <div class="panel-heading" style="background-image:url(/static/img/light.jpg)">
-			   This is a default suggested plan created for you!! Don't like it.. then change it. Just drag and drop courses in columns for the semesters and we will help you validate your choices and create a plan.
+			   This is a default suggested plan created for you!! Don't like it.. then change it. Just drag and drop courses in columns for the semesters and we will help you validate your choices and create a plan. You can download the suggestion or your plan by click this button -> 
                         </div>
                         <div class="panel-body" style="background-image:url(/static/img/light.jpg)">
                            
@@ -164,6 +182,10 @@ fieldset {
                      </div>
                 <!-- /.col-lg-12 -->
             </div>
+      <div style="float:right">
+        <a href="/images/myw3schoolsimage.jpg" download="w3logdo" id="downloadAnchorElem">
+        <button class="button"  onclick="downloadPdf();"> Download</button>
+      </div>
 	</div>
 
 <script>
