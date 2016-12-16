@@ -49,7 +49,7 @@ https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 
 ## License
 
-DrugWatch is released under the [MIT License]
+Coursify is released under the [MIT License]
 
 ## Team Members
 
