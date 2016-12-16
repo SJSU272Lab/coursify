@@ -21,6 +21,6 @@ Architecture Flow Diagram: https://github.com/SJSU272Lab/Fall16-Team26/tree/mast
 
 ![] (http://imgur.com/WQGW6TB.gif)
 
-# Downlaod the course plan:
+# Download the course plan:
 
 ![] (http://imgur.com/dxnbkG5.gif)
