@@ -1,6 +1,5 @@
-# Fall16-Team26
-Name of the project : COURSIFY
-
+# Coursify
+Fall16-Team26
 
 Project Abstract: 
 Problem:  Here we are talking about the SJSU students, who face the issue whenever looking for the courses to enroll in. The problem is that we have to use a lot of links back and forth and that creates confusion for many. Also some people after enrollment find out that they cannot enroll in this course and that creates a big problem for them at that time. We had to manually look up all the prerequisite and co-requisite courses and still had to go through loads of links and pages to know if we have selected proper course or not, to finish our degree in proper timeline.
