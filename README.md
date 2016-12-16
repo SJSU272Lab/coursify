@@ -10,12 +10,12 @@
 Fall16-Team26
 
 
-##Problem:
+## Problem:
 As students, we face a lot of problems while selecting courses each semester. 
 The plethora of options to choose from, the knowledge of our choices and their alignment with our interests confuse us all the more. And after all this the valid pre and corequisite choices also come up. After flipping through web pages, talking to people we gather all the data, but what we need is concrete information. COURSIFY aims to solve exactly these problems.
 
 
-##Solution:
+## Solution:
 Coursify has three major modules.
 
 1. The feedback module is where students provide feedback, if they have taken a course previously under a professor. This data helps in creating course plans for future students. Our intelligent system grabs information form theses feedbacks and aggreagated them.
@@ -24,22 +24,27 @@ Coursify has three major modules.
 
 3. The courses suggested above are not only static but, you can arranage them as you like and coursify will work in the background analysing them. Courses that don't satisfy pre-req or co-req conditions, they automagically change color to red, thus gaining user attention.
 
-Project Deliverables:
+## Project Deliverables:
 
-Project Report: https://github.com/SJSU272Lab/coursify/blob/master/Documents/Coursify_project_report.pdf
+[Presentation Slides] (https://github.com/SJSU272Lab/coursify/blob/master/Documents/Project_presentation.pptx) <br/>
+[Project Report] (https://github.com/SJSU272Lab/coursify/blob/master/Documents/Coursify_project_report.pdf)
 
-Project Presentation: https://github.com/SJSU272Lab/coursify/blob/master/Documents/Project_presentation.pptx
+## Architecture Flow Diagram:
+
+https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 
 
-Architecture Flow Diagram: https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
-
-# Interactive course load management:
+## Interactive course load management:
 
 ![] (http://imgur.com/WQGW6TB.gif)
 
-# Download the course plan:
+## Download the course plan:
 
 ![] (http://imgur.com/dxnbkG5.gif)
+
+## License
+
+DrugWatch is released under the [MIT License]
 
 ## Team Members
 
