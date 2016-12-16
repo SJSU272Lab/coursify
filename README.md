@@ -9,17 +9,20 @@
  
 Fall16-Team26
 
-Project Abstract: 
 
-Problem:  As a student, we face a lot of problems while enrolling in courses each semester. 
-The plethora of options to choose from, the knowledge of our choices and their alignment with our interests confuse us all the more. 
-And after all this the valid pre and corequisite choices also come up.After flipping through web pages, talking to people we gather all the data, but what we need is concrete information. COURSIFY aims to solve all these problems.
+##Problem:
+As students, we face a lot of problems while selecting courses each semester. 
+The plethora of options to choose from, the knowledge of our choices and their alignment with our interests confuse us all the more. And after all this the valid pre and corequisite choices also come up. After flipping through web pages, talking to people we gather all the data, but what we need is concrete information. COURSIFY aims to solve exactly these problems.
 
 
-Proposed Solution:
-Coursify had two major modules.
-The feedback module is where students to provide feedback if they taken a course previously under a professor. This data helps in creating course plans for future students.
-To create a course plan for themselves students need to provide required information as it’s asked for. We have kept the process simple for you, you just have to select from the list of given options. Based on the provided inputs Coursify will generate a degree plan for a student.
+##Solution:
+Coursify has three major modules.
+
+1. The feedback module is where students provide feedback, if they have taken a course previously under a professor. This data helps in creating course plans for future students. Our intelligent system grabs information form theses feedbacks and aggreagated them.
+
+2. To create a course plan for themselves students need to provide required information as it’s asked for. We have kept the process very simple for you, you just have to select a few options and based on these provided inputs Coursify will generate a degree plan for a student.
+
+3. The courses suggested above are not only static but, you can arranage them as you like and coursify will work in the background analysing them. Courses that don't satisfy pre-req or co-req conditions, they automagically change color to red, thus gaining user attention.
 
 Project Deliverables:
 
