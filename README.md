@@ -2,6 +2,7 @@
 Fall16-Team26
 
 Project Abstract: 
+
 Problem:  As a student, we face a lot of problems while enrolling in courses each semester. 
 The plethora of options to choose from, the knowledge of our choices and their alignment with our interests confuse us all the more. 
 And after all this the valid pre and corequisite choices also come up.After flipping through web pages, talking to people we gather all the data, but what we need is concrete information. COURSIFY aims to solve all these problems.
