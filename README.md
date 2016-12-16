@@ -37,7 +37,7 @@ The courses suggested above are not only static but, you can arranage them as yo
 https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 
 ## Demo
-[Video Link](https://youtu.be/BhmEvpLwVNU)
+[Video Link](https://www.youtube.com/watch?v=82pN7gP4z3k)
 
 ## Interactive course load management:
 
