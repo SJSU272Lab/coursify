@@ -44,6 +44,10 @@ https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 ## Demo
 [Video Link](https://www.youtube.com/watch?v=82pN7gP4z3k)
 
+[App link](http://ec2-35-165-176-7.us-west-2.compute.amazonaws.com/)
+
+NOTE: We have limited data as of now. So course recommnedation will only work for the data which we have. (You can try with web technologes for example.) As user inputs more data, our systems keeps on learning. Even you can provide data about a course and review the technologies from the [ones which we presently track](https://github.com/SJSU272Lab/coursify/blob/master/Flask/recommender/tech_list.json)
+
 ## User Interface Screenshots
 <img src="http://i.imgur.com/akDhBp8.png" width="35%"></img><br><br>
 <img src="http://i.imgur.com/5kHZ0tp.png" width="35%"></img><br><br>
