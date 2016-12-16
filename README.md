@@ -22,6 +22,7 @@ The feedback module is where students to provide feedback if they taken a course
 To create a course plan for themselves students need to provide required information as it’s asked for. We have kept the process simple for you, you just have to select from the list of given options. Based on the provided inputs Coursify will generate a degree plan for a student.
 
 Project Deliverables:
+
 Project Report: https://github.com/SJSU272Lab/coursify/blob/master/Documents/Coursify_project_report.pdf
 
 
