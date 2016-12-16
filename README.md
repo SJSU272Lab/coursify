@@ -1,4 +1,12 @@
 # Coursify
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/SJSU272Lab/Fall16-Team11/blob/master/LICENSE.md)
+[![GitHub issues](https://img.shields.io/badge/issues-0%20open-green.svg)](https://github.com/SJSU272Lab/coursify/issues?q=is%3Aopen+is%3Aissue) 
+[![GitHub closed issues](https://img.shields.io/badge/issues-15%20closed-red.svg)](https://github.com/SJSU272Lab/coursify/issues?q=is%3Aissue+is%3Aclosed)
+
+<img src="https://i.imgur.com/lpFVKEB.png" width="28%" align="left">
+
+
 Fall16-Team26
 
 Project Abstract: 
