@@ -27,6 +27,7 @@ Coursify has three major modules.
 Project Deliverables:
 
 Project Report: https://github.com/SJSU272Lab/coursify/blob/master/Documents/Coursify_project_report.pdf
+
 Project Presentation: https://github.com/SJSU272Lab/coursify/blob/master/Documents/Project_presentation.pptx
 
 
