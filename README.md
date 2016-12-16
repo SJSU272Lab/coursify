@@ -17,47 +17,10 @@ Our system aims to provide:
 
 Architecture Flow Diagram: https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 
+# Interactive course load management:
 
+![] (http://imgur.com/WQGW6TB.gif)
 
-User Stories:
-User story ID: 1
-User story title: Student views course planner
+# Downlaod the course plan:
 
-As a student
-I want to  see courses offered in MS In Software Engineering with all the associated information like its pre-requisite course, associated technologies, etc.
-So that I can plan the the courses to take while pursuing MS.
-
-Acceptance Criterion :
-
-Given that Student is admitted into software engineering department. 
-When the student looks for courses offered 
-Then all the courses offered by department are displayed
-   
-User story ID: 2
-User story title: Student selects courses 
-
-As a student,
-I want to  select courses based on the technology I want to learn
-So that I can take the desired courses among the offered courses
-
-Acceptance Criterion :
-Given that Student is admitted into software engineering department. 
-When the student selects courses based on the technologies taught
-Then all the courses where that technology is taught are displayed to him.
-
-User story ID: 3
-User story title: Application parses data from SJSU Website
-
-As a application
-I want to  parse the course information from SJSU Website
-So that I have the complete and relevant information for courses offered  
-
-
-Acceptance Criterion :
-Given that the SJSU Website gives information about courses 
-When  it is accessed 
-Then the application parses the data
-
-
-
-[test]
+![] (http://imgur.com/dxnbkG5.gif)
