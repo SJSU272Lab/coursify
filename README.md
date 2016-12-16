@@ -40,7 +40,8 @@ https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 [Video Link](https://www.youtube.com/watch?v=82pN7gP4z3k)
 
 ## User Interface Screenshots
-![](http://i.imgur.com/akDhBp8.png)
+
+<img src="https://i.imgur.com/akDhBp8.png" width="28%" align="left">
 ## Interactive course load management:
 
 ![] (http://imgur.com/WQGW6TB.gif)
