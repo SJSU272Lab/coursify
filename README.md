@@ -27,6 +27,11 @@ To create a course plan for themselves students need to provide required informa
 ### 3. Interactive course load manager
 The courses suggested above are not only static but, you can arranage them as you like and coursify will work in the background analysing them. Courses that don't satisfy pre-req or co-req conditions, they automagically change color to red, thus gaining user attention.
 
+## User Stories:
+As a student I want to provide feedback about a course that I took under a Professor, so that my experience can be shared.
+As a student I want to create a course plan so that I can finish my graduation program.
+As a suggestive web app I want to take inputs so that I can create and suggest a course plan on basis of that.
+
 ## Project Deliverables:
 
 [Presentation Slides] (https://github.com/SJSU272Lab/coursify/blob/master/Documents/Project_presentation.pptx) <br/>
