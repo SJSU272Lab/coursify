@@ -48,8 +48,8 @@ https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 <img src="http://i.imgur.com/akDhBp8.png" width="35%"></img><br><br>
 <img src="http://i.imgur.com/5kHZ0tp.png" width="35%"></img><br><br>
 <img src="http://i.imgur.com/Vl3Zqio.png" width="35%"></img><br><br>
-<img src="http://i.imgur.com/NOt340l.png" width="35%"></img><br><br>
-<img src="http://i.imgur.com/whFgY8J.png" width="35%"></img><br><br>
+<img src="http://i.imgur.com/ARGIOQP.png" width="35%"></img><br><br>
+<img src="http://i.imgur.com/BaZFz1o.png" width="35%"></img><br><br>
 
 ## Interactive course load management:
 
