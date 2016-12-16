@@ -18,11 +18,14 @@ The plethora of options to choose from, the knowledge of our choices and their a
 ## Solution:
 Coursify has three major modules.
 
-1. The feedback module is where students provide feedback, if they have taken a course previously under a professor. This data helps in creating course plans for future students. Our intelligent system grabs information form theses feedbacks and aggreagated them.
+### 1. Feedback Analyzer
+The feedback module is where students provide feedback, if they have taken a course previously under a professor. This data helps in creating course plans for future students. Our intelligent system grabs information form theses feedbacks and aggreagated them.
 
-2. To create a course plan for themselves students need to provide required information as it’s asked for. We have kept the process very simple for you, you just have to select a few options and based on these provided inputs Coursify will generate a degree plan for a student.
+### 2. Course Recommender
+To create a course plan for themselves students need to provide required information as it’s asked for. We have kept the process very simple for you, you just have to select a few options. Based on these provided inputs Coursify will do the number crunching and generate a degree plan for you. It intelligently takes care of all the pre-req and co-req requirements for you and suggests courses according to your technology likings.
 
-3. The courses suggested above are not only static but, you can arranage them as you like and coursify will work in the background analysing them. Courses that don't satisfy pre-req or co-req conditions, they automagically change color to red, thus gaining user attention.
+### 3. Interactive course load manager
+The courses suggested above are not only static but, you can arranage them as you like and coursify will work in the background analysing them. Courses that don't satisfy pre-req or co-req conditions, they automagically change color to red, thus gaining user attention.
 
 ## Project Deliverables:
 
@@ -33,6 +36,8 @@ Coursify has three major modules.
 
 https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 
+## Demo
+[Video Link](https://youtu.be/BhmEvpLwVNU)
 
 ## Interactive course load management:
 
