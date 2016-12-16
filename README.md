@@ -23,3 +23,8 @@ Architecture Flow Diagram: https://github.com/SJSU272Lab/Fall16-Team26/tree/mast
 # Download the course plan:
 
 ![] (http://imgur.com/dxnbkG5.gif)
+
+## Team Members
+
+| [![Madhur Khandelwal](https://avatars.githubusercontent.com/madhurkhandelwal234?s=100)<br /><sub>Madhur Khandelwal</sub>](https://github.com/madhurkhandelwal234)<br /> | [![Aditi Garg](https://avatars.githubusercontent.com/aditigargsjsu?s=100)<br /><sub>Aditi Garg</sub>](https://github.com/aditigargsjsu)<br /> | [![Chaya Malik](https://avatars.githubusercontent.com/Chaya16?s=100)<br /><sub>Chaya Malik</sub>](https://github.com/Chaya16)<br />| [![Shafi Dayatar](https://avatars.githubusercontent.com/shafi-dayatar?s=100)<br /><sub>Shafi Dayatar</sub>](https://github.com/shafi-dayatar)<br />|
+| :---: | :---: | :---: | :---: |
