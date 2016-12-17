@@ -42,7 +42,10 @@ As a suggestive web app I want to take inputs so that I can create and suggest a
 https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 
 ## Demo
-[Video Link](https://www.youtube.com/watch?v=82pN7gP4z3k)
+
+[Intro video link](https://www.youtube.com/watch?v=3elmcMhERQI)
+
+[Demo video link](https://www.youtube.com/watch?v=82pN7gP4z3k)
 
 [App link](http://ec2-35-165-176-7.us-west-2.compute.amazonaws.com/)
 
