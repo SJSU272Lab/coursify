@@ -1,63 +1,76 @@
-# Fall16-Team26
-Name of the project : COURSIFY
+# Coursify
+ 
+ [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/SJSU272Lab/Fall16-Team11/blob/master/LICENSE.md)
+ [![GitHub issues](https://img.shields.io/badge/issues-0%20open-green.svg)](https://github.com/SJSU272Lab/coursify/issues?q=is%3Aopen+is%3Aissue) 
+ [![GitHub closed issues](https://img.shields.io/badge/issues-15%20closed-red.svg)](https://github.com/SJSU272Lab/coursify/issues?q=is%3Aissue+is%3Aclosed)
+ 
+ <img src="https://i.imgur.com/lpFVKEB.png" width="28%" align="left">
+ 
+ 
+Fall16-Team26
 
 
-Project Abstract: 
-Problem:  Here we are talking about the SJSU students, who face the issue whenever looking for the courses to enroll in. The problem is that we have to use a lot of links back and forth and that creates confusion for many. Also some people after enrollment find out that they cannot enroll in this course and that creates a big problem for them at that time. We had to manually look up all the prerequisite and co-requisite courses and still had to go through loads of links and pages to know if we have selected proper course or not, to finish our degree in proper timeline.
-
-Proposed Solution: The project aims to solve and provide a good perspective to the students. So we would like to create a system which gives better graphical view of the current system as well as gives a better way to interact with the course advisor. In Graphical view it layouts all the possible courses selection in a tree fashion, describing all the dependencies of the courses,i.e, the prerequisite and co-requisite courses one will require to complete that course with program requirements and criteria.
-
-Our system aims to provide:
-
-1) Finds best way to achieve degree, here system predicts the courses based on your selection  and accordingly and gives different  plans  for your courses and degree to finish on time.
-
-2) If you don’t like the prediction then system lets you select your own courses and for the degree and you can share the tree like graph structure with advisor to get a final review about your plan.
-
-3)We will also add the feature where based on the long term goal of students, better course planning they can view and go accordingly.
-
-Architecture Flow Diagram: https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
+## Problem:
+As students, we face a lot of problems while selecting courses each semester. 
+The plethora of options to choose from, the knowledge of our choices and their alignment with our interests confuse us all the more. And after all this the valid pre and corequisite choices also come up. After flipping through web pages, talking to people we gather all the data, but what we need is concrete information. COURSIFY aims to solve exactly these problems.
 
 
+## Solution:
+Coursify has three major modules.
 
-User Stories:
-User story ID: 1
-User story title: Student views course planner
+### 1. Feedback Analyzer
+The feedback module is where students provide feedback, if they have taken a course previously under a professor. This data helps in creating course plans for future students. Our intelligent system grabs information form theses feedbacks and aggreagated them.
 
-As a student
-I want to  see courses offered in MS In Software Engineering with all the associated information like its pre-requisite course, associated technologies, etc.
-So that I can plan the the courses to take while pursuing MS.
+### 2. Course Recommender
+To create a course plan for themselves students need to provide required information as it’s asked for. We have kept the process very simple for you, you just have to select a few options. Based on these provided inputs Coursify will do the number crunching and generate a degree plan for you. It intelligently takes care of all the pre-req and co-req requirements for you and suggests courses according to your technology likings.
 
-Acceptance Criterion :
+### 3. Interactive course load manager
+The courses suggested above are not only static but, you can arranage them as you like and coursify will work in the background analysing them. Courses that don't satisfy pre-req or co-req conditions, they automagically change color to red, thus gaining user attention.
 
-Given that Student is admitted into software engineering department. 
-When the student looks for courses offered 
-Then all the courses offered by department are displayed
-   
-User story ID: 2
-User story title: Student selects courses 
+## User Stories:
+As a student I want to provide feedback about a course that I took under a Professor, so that my experience can be shared.<br/>
+As a student I want to create a course plan so that I can finish my graduation program.<br/>
+As a suggestive web app I want to take inputs so that I can create and suggest a course plan on basis of that.
 
-As a student,
-I want to  select courses based on the technology I want to learn
-So that I can take the desired courses among the offered courses
+## Project Deliverables:
 
-Acceptance Criterion :
-Given that Student is admitted into software engineering department. 
-When the student selects courses based on the technologies taught
-Then all the courses where that technology is taught are displayed to him.
+[Presentation Slides] (https://github.com/SJSU272Lab/coursify/blob/master/Documents/Project_presentation.pptx) <br/>
+[Project Report] (https://github.com/SJSU272Lab/coursify/blob/master/Documents/Coursify_project_report.pdf)
 
-User story ID: 3
-User story title: Application parses data from SJSU Website
+## Architecture Flow Diagram:
 
-As a application
-I want to  parse the course information from SJSU Website
-So that I have the complete and relevant information for courses offered  
+https://github.com/SJSU272Lab/Fall16-Team26/tree/master/project_architecture
 
+## Demo
 
-Acceptance Criterion :
-Given that the SJSU Website gives information about courses 
-When  it is accessed 
-Then the application parses the data
+[Intro video link](https://www.youtube.com/watch?v=3elmcMhERQI)
 
+[Demo video link](https://www.youtube.com/watch?v=82pN7gP4z3k)
 
+[App link](http://ec2-35-165-176-7.us-west-2.compute.amazonaws.com/)
 
-[test]
+NOTE: We have limited data as of now. So course recommnedation will only work for the data which we have. (You can try with web technologes for example.) As user inputs more data, our systems keeps on learning. Even you can provide data about a course and review the technologies from the [ones which we presently track](https://github.com/SJSU272Lab/coursify/blob/master/Flask/recommender/tech_list.json)
+
+## User Interface Screenshots
+<img src="http://i.imgur.com/akDhBp8.png" width="35%"></img><br><br>
+<img src="http://i.imgur.com/5kHZ0tp.png" width="35%"></img><br><br>
+<img src="http://i.imgur.com/Vl3Zqio.png" width="35%"></img><br><br>
+<img src="http://i.imgur.com/ARGIOQP.png" width="35%"></img><br><br>
+<img src="http://i.imgur.com/BaZFz1o.png" width="35%"></img><br><br>
+
+## Interactive course load management:
+
+![] (http://imgur.com/WQGW6TB.gif)
+
+## Download the course plan:
+
+![] (http://imgur.com/dxnbkG5.gif)
+
+## License
+
+Coursify is released under the [MIT License]
+
+## Team Members
+
+| [![Madhur Khandelwal](https://avatars.githubusercontent.com/madhurkhandelwal234?s=100)<br /><sub>Madhur Khandelwal</sub>](https://github.com/madhurkhandelwal234)<br /> | [![Aditi Garg](https://avatars.githubusercontent.com/aditigargsjsu?s=100)<br /><sub>Aditi Garg</sub>](https://github.com/aditigargsjsu)<br /> | [![Chaya Malik](https://avatars.githubusercontent.com/Chaya16?s=100)<br /><sub>Chaya Malik</sub>](https://github.com/Chaya16)<br />| [![Shafi Dayatar](https://avatars.githubusercontent.com/shafi-dayatar?s=100)<br /><sub>Shafi Dayatar</sub>](https://github.com/shafi-dayatar)<br />|
+| :---: | :---: | :---: | :---: |
