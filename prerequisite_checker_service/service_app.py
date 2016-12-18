@@ -49,6 +49,7 @@ def validate_prereq():
     print course_in_list
     prereq_list =  Prerequisite.query.filter(Prerequisite.primary_course.in_(course_in_list)).all()
     coreq_list =  Corequisite.query.filter(Corequisite.primary_course.in_(course_in_list)).all()
+    db.session.close()
     
     for course in prereq_list:
       if not (validPrereqCourse(courses, course)):
@@ -77,7 +78,7 @@ def get_prereq():
     prereq_list =  Prerequisite.query.filter(Prerequisite.primary_course == course).all()
 
     coreq_list =  Corequisite.query.filter(Corequisite.primary_course == course).all()
-    
+    db.session.close()
     for crse in prereq_list:
       data_out["prereq"].append(crse.prereq_course)
 
